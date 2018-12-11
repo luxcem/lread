@@ -16,4 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-urlpatterns = [path("admin/", admin.site.urls)]
+from reader.views import HelpView, ReaderView
+
+urlpatterns = [
+    path("admin/", admin.site.urls),
+    path("help/", HelpView.as_view()),
+    path("", ReaderView.as_view()),
+]

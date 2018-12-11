@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block "content" %}
+    <div id="content-title">{{ title }}</div>
+    <div id="readability-content">
+        <p>{{ content | safe}}</p>
+    </div>
+    <p>Excerpted from <a href="{{ url }}">{{ url }}</a></p>
+{% endblock %}

@@ -1,0 +1,12 @@
+input {
+    width: 100%;
+    margin: 10px;
+    border: 0;
+    border-bottom: 2px solid rgb(190, 46, 13);
+    font-size: 3em;
+    font-family: 'Linux Libertine', 'Merriweather', serif;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(190, 46, 13, 0.3);
+}

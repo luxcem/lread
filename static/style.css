@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'Linux Libertine'; /* normal */
+    src: url('fonts/LinLibertine_R.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linux Libertine'; /* italic */
+    src: url('fonts/LinLibertine_RI.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Linux Libertine'; /* bold */
+    src: url('fonts/LinLibertine_RB.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Linux Libertine'; /* bold italic */
+    src: url('fonts/LinLibertine_RBI.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-font-smoothing: antialiased !important;
+    text-rendering: optimizelegibility !important;
+
+    font-family: 'Linux Libertine', 'Merriweather', serif;
+    color: rgb(51, 51, 51);
+    padding: 1.2em;
+}
+
+
+#readability-content {
+    max-width: 700px;
+    margin: auto;
+}
+
+
+* {
+    background-color: white !important;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Copy & Lists */
+p {
+    line-height: 1.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+}
+
+ul, ol {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+ul li, ol li {
+    line-height: 1.5rem;
+}
+
+ul ul, ol ul, ul ol, ol ol {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    /* Change heading typefaces here */
+    font-family: sans-serif;
+}
+
+#content-title{
+    font-family: sans-serif;
+    margin-top: 1.5rem;
+    margin-bottom: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 2.3rem;
+    font-weight: bold;
+    width: 80%;
+}
+
+
+a {
+    color: rgb(190, 46, 13);
+    text-decoration: none;
+}
+
+#readFooter {
+    margin-top: 2rem;
+}
+
+/* Typography scale */
+
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-size-adjust: 0.5;
+}
+
+/* Body Content */
+
+html {
+    font-size: 1em;
+    line-height: 1.25;
+}
+
+@media (min-width: 43.75em) {
+    html {
+        font-size: 1.125em;
+        line-height: 1.375;
+    }
+}
+
+h1 {
+    font-size: 2em;
+    /* 2x body copy size = 32px */
+    line-height: 1.25;
+    /* 45px / 36px */
+}
+
+@media (min-width: 43.75em) {
+    h1 {
+        font-size: 2.5em;
+        /* 2.5x body copy size = 40px */
+        line-height: 1.125;
+    }
+}
+
+@media (min-width: 56.25em) {
+    h1 {
+        font-size: 3em;
+        /* 3x body copy size = 48px */
+        line-height: 1.05;
+        /* keep to a multiple of the 20px line height and something more appropriate for display headings */
+    }
+}
+
+h2 {
+    font-size: 1.625em;
+    /* 1.625x body copy size = 26px */
+    line-height: 1.15384615;
+    /* 30px / 26px */
+}
+
+@media (min-width: 43.75em) {
+    h2 {
+        font-size: 2em;
+        /* 2x body copy size = 32px */
+        line-height: 1.25;
+    }
+}
+
+@media (min-width: 56.25em) {
+    h2 {
+        font-size: 2.25em;
+        /* 2.25x body copy size = 36px */
+        line-height: 1.25;
+    }
+}
+
+h3 {
+    font-size: 1.375em;
+    /* 1.375x body copy size = 22px */
+    line-height: 1.13636364;
+    /* 25px / 22px */
+}
+
+@media (min-width: 43.75em) {
+    h3 {
+        font-size: 1.5em;
+        /* 1.5x body copy size = 24px */
+        line-height: 1.25;
+    }
+}
+
+@media (min-width: 56.25em) {
+    h3 {
+        font-size: 1.75em;
+        /* 1.75x body copy size = 28px */
+        line-height: 1.25;
+    }
+}
+
+h4 {
+    font-size: 1.125em;
+    /* 1.125x body copy size = 18px */
+    line-height: 1.11111111;
+}
+
+@media (min-width: 43.75em) {
+    h4 {
+        line-height: 1.22222222;
+        /* (22px / 18px */
+    }
+}
+
+blockquote {
+    font-size: 1.25em;
+    /* 20px / 16px */
+    line-height: 1.25;
+    /* 25px / 20px */
+}
+
+@media (min-width: 43.75em) {
+    blockquote {
+        font-size: 1.5em;
+        /* 24px / 16px = */
+        line-height: 1.45833333;
+        /* 35px / 24px */
+    }
+}
