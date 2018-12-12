@@ -1,53 +1,12 @@
 """Reader views."""
-from urllib.parse import urlparse
-
 from django.core.validators import URLValidator
 from django.core.exceptions import ValidationError
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
-import bleach
 import requests
-from bs4 import BeautifulSoup
-from readability import Document
 
-ALLOWED_TAGS = [
-    "a",
-    "b",
-    "blockquote",
-    "br",
-    "br",
-    "code",
-    "dd",
-    "del",
-    "dl",
-    "dt",
-    "em",
-    "h1",
-    "h2",
-    "h3",
-    "h4",
-    "h5",
-    "h6",
-    "hr",
-    "i",
-    "img",
-    "kbd",
-    "li",
-    "ol",
-    "p",
-    "pre",
-    "q",
-    "s",
-    "span",
-    "strike",
-    "strong",
-    "sub",
-    "sup",
-    "ul",
-]
-
-ALLOWED_ATTRS = {"a": ("href", "rel"), "img": ("alt", "src")}
+from reader.tools import parse_article
 
 
 class HelpView(TemplateView):
@@ -75,35 +34,17 @@ class ReaderView(TemplateView):
         except ValidationError:
             return redirect("/help")
 
+        # Check that url is html
+        r = requests.head(article_url)
+        if "text/html" not in r.headers["content-type"]:
+            return redirect("/help")
+
         self.article_url = article_url
         return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self):
         """Return article informations."""
-        source = requests.get(self.article_url)
-        urlparsed = urlparse(self.article_url)
-        hostname = "{scheme}://{netloc}".format(
-            scheme=urlparsed.scheme, netloc=urlparsed.netloc
-        )
-        doc = Document(source.text)
-
-        content = bleach.clean(
-            doc.summary(), tags=ALLOWED_TAGS, attributes=ALLOWED_ATTRS, strip=True
-        )
-        soup = BeautifulSoup(content)
-
-        for img in soup.findAll("img"):
-            if img["src"].startswith("http"):
-                continue
-            img["src"] = "{root}/{src}".format(root=hostname, src=img["src"])
-
-        for link in soup.findAll("link"):
-            if link["href"].startswith("http"):
-                continue
-            link["href"] = "{root}/{src}".format(root=hostname, src=img["href"])
-
-        return {
-            "title": doc.short_title(),
-            "content": str(soup),
-            "url": self.article_url,
-        }
+        context = parse_article(self.article_url)
+        if context == {}:
+            return redirect("/help")
+        return context
