@@ -3,7 +3,7 @@ beautifulsoup4==4.9.3
 bleach==3.2.3
 dj-database-url==0.5.0
 gunicorn==20.0.4
-psycopg2==2.8.6
+psycopg2==2.9.5
 readability-lxml==0.8.1
 requests==2.25.1
 whitenoise==5.2.0
